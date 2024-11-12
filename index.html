@@ -1,1 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Selection</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            background-color: #141414;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        /* Title and subtitle */
+        .title {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #b3b3b3;
+            margin-bottom: 30px;
+        }
+
+        /* Container for profiles */
+        .profiles-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+            justify-content: center;
+        }
+
+        /* Profile card styling */
+        .profile-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .profile-card:hover {
+            transform: scale(1.1);
+            opacity: 0.8;
+        }
+
+        .profile-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 15%;
+            background-color: #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-card img:hover {
+            transform: scale(1.1);
+        }
+
+        .profile-name {
+            margin-top: 10px;
+            font-size: 1.1em;
+            color: #e5e5e5;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="title">The Last Dance</div>
+    <div class="subtitle">Who's Reading</div>
+    <div class="profiles-container">
+        <!-- Profile cards with updated links -->
+        <div class="profile-card" onclick="window.location.href='https://i.postimg.cc/ncVYDsF6/Screenshot-20241112-101452-Facebook.jpg'">
+            <img src="https://i.postimg.cc/ncVYDsF6/Screenshot-20241112-101452-Facebook.jpg" alt="Doua">
+            <div class="profile-name">Doua</div>
+        </div>
+        <div class="profile-card" onclick="window.location.href='https://i.postimg.cc/g0hvW8s6/Screenshot-20241112-101507-Facebook.jpg'">
+            <img src="https://i.postimg.cc/g0hvW8s6/Screenshot-20241112-101507-Facebook.jpg" alt="Hamdi">
+            <div class="profile-name">Hamdi</div>
+        </div>
+        <div class="profile-card" onclick="window.location.href='https://i.postimg.cc/m2d3Nbhh/Screenshot-20241112-101715-Facebook.jpg'">
+            <img src="https://i.postimg.cc/m2d3Nbhh/Screenshot-20241112-101715-Facebook.jpg" alt="Sarah">
+            <div class="profile-name">Sarah</div>
+        </div>
+        <div class="profile-card" onclick="window.location.href='https://i.postimg.cc/7Zf3KpT9/Screenshot-20241112-101754-Facebook.jpg'">
+            <img src="https://i.postimg.cc/7Zf3KpT9/Screenshot-20241112-101754-Facebook.jpg" alt="Lhif">
+            <div class="profile-name">Lhif</div>
+        </div>
+        <div class="profile-card" onclick="window.location.href='https://i.postimg.cc/t4whw23j/Screenshot-20241112-101807-Facebook.jpg'">
+            <img src="https://i.postimg.cc/t4whw23j/Screenshot-20241112-101807-Facebook.jpg" alt="Yahya">
+            <div class="profile-name">Yahya</div>
+        </div>
+        <div class="profile-card" onclick="window.location.href='https://i.postimg.cc/76ySYhtt/Screenshot-20241112-101815-Facebook.jpg'">
+            <img src="https://i.postimg.cc/76ySYhtt/Screenshot-20241112-101815-Facebook.jpg" alt="Zeineb">
+            <div class="profile-name">Zeineb</div>
+        </div>
+    </div>
+</body>
+</html>
