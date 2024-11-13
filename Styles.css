@@ -17,6 +17,7 @@ body {
     height: 100vh;
     padding: 20px;
     overflow: hidden; /* Prevent any unwanted scrolling */
+    text-align: center; /* Center text */
 }
 
 /* Title and subtitle */
@@ -24,14 +25,12 @@ body {
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: 10px;
-    text-align: center;
 }
 
 .subtitle {
     font-size: 1.5rem;
     color: #b3b3b3;
     margin-bottom: 30px;
-    text-align: center;
 }
 
 /* Container for profile cards */
