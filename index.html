@@ -20,9 +20,10 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: center; /* Center content vertically and horizontally */
             height: 100vh;
             padding: 20px;
+            margin: 0;
         }
 
         /* Intro overlay styling */
@@ -58,13 +59,18 @@
         }
 
         /* Container for profiles */
+        #main-content {
+            display: none;
+            text-align: center;
+        }
+
         .profiles-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 20px;
-            width: 100%;
             max-width: 1200px;
-            justify-content: center;
+            width: 100%;
+            justify-items: center; /* Center items horizontally */
         }
 
         /* Profile card styling */
@@ -74,6 +80,11 @@
             align-items: center;
             cursor: pointer;
             transition: transform 0.3s ease, opacity 0.3s ease;
+            background-color: rgba(0, 0, 0, 0.5); /* Slight background effect */
+            border-radius: 10px;
+            overflow: hidden;
+            width: 100%;
+            max-width: 250px; /* Limit card width */
         }
 
         .profile-card:hover {
@@ -84,7 +95,7 @@
         .profile-card img {
             width: 150px;
             height: 150px;
-            border-radius: 15%;
+            border-radius: 50%;
             background-color: #333;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
             transition: transform 0.3s ease;
@@ -101,6 +112,7 @@
             text-align: center;
             margin-bottom: 20px;
         }
+
     </style>
 </head>
 <body>
@@ -114,7 +126,7 @@
     </div>
 
     <!-- Main Content -->
-    <div id="main-content" style="display: none;">
+    <div id="main-content">
         <div class="title">The Last Dance</div>
         <div class="subtitle">Who's Reading</div>
         <div class="profiles-container">
