@@ -151,16 +151,11 @@
         function hideIntro() {
             document.getElementById("intro").style.display = "none";
             document.getElementById("main-content").style.display = "block";
-            localStorage.setItem("introShown", "true");
         }
 
-        // Check if the intro was shown before
-        if (!localStorage.getItem("introShown")) {
-            setTimeout(hideIntro, 15000); // Hide after 15 seconds
-            document.getElementById("intro").addEventListener("click", hideIntro); // Hide on click
-        } else {
-            hideIntro(); // If already shown, display main content directly
-        }
+        // Display the intro video and hide it after 15 seconds or on click
+        setTimeout(hideIntro, 15000); // Hide after 15 seconds
+        document.getElementById("intro").addEventListener("click", hideIntro); // Hide on click
     </script>
 
 </body>
