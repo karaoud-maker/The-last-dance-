@@ -25,6 +25,25 @@
             padding: 20px;
         }
 
+        /* Intro overlay styling */
+        #intro {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        #intro video {
+            width: 100%;
+            height: auto;
+            max-height: 100%;
+        }
+
         /* Title and subtitle */
         .title {
             font-size: 3rem;
@@ -82,38 +101,67 @@
             text-align: center;
             margin-bottom: 20px;
         }
-
     </style>
 </head>
 <body>
-    <div class="title">The Last Dance</div>
-    <div class="subtitle">Who's Reading</div>
-    <div class="profiles-container">
-        <!-- Profile cards with updated redirect links -->
-        <div class="profile-card" onclick="window.location.href='https://karaoud-maker.github.io/the-last-dance/'">
-            <img src="https://i.postimg.cc/ncVYDsF6/Screenshot-20241112-101452-Facebook.jpg" alt="Doua">
-            <div class="profile-name">Doua</div>
-        </div>
-        <div class="profile-card" onclick="window.location.href='https://karaoud-maker.github.io/the-last-dance/'">
-            <img src="https://i.postimg.cc/g0hvW8s6/Screenshot-20241112-101507-Facebook.jpg" alt="Hamdi">
-            <div class="profile-name">Hamdi</div>
-        </div>
-        <div class="profile-card" onclick="window.location.href='https://karaoud-maker.github.io/the-last-dance/'">
-            <img src="https://i.postimg.cc/m2d3Nbhh/Screenshot-20241112-101715-Facebook.jpg" alt="Sarah">
-            <div class="profile-name">Sarah</div>
-        </div>
-        <div class="profile-card" onclick="window.location.href='https://karaoud-maker.github.io/the-last-dance/'">
-            <img src="https://i.postimg.cc/7Zf3KpT9/Screenshot-20241112-101754-Facebook.jpg" alt="Lhif">
-            <div class="profile-name">Lhif</div>
-        </div>
-        <div class="profile-card" onclick="window.location.href='https://karaoud-maker.github.io/the-last-dance/'">
-            <img src="https://i.postimg.cc/t4whw23j/Screenshot-20241112-101807-Facebook.jpg" alt="Yahya">
-            <div class="profile-name">Yahya</div>
-        </div>
-        <div class="profile-card" onclick="window.location.href='https://karaoud-maker.github.io/the-last-dance/'">
-            <img src="https://i.postimg.cc/76ySYhtt/Screenshot-20241112-101815-Facebook.jpg" alt="Zeineb">
-            <div class="profile-name">Zeineb</div>
+    
+    <!-- Intro Video -->
+    <div id="intro">
+        <video id="introVideo" autoplay muted>
+            <source src="intro.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content" style="display: none;">
+        <div class="title">The Last Dance</div>
+        <div class="subtitle">Who's Reading</div>
+        <div class="profiles-container">
+            <!-- Profile cards with updated redirect links -->
+            <div class="profile-card" onclick="window.location.href='https://karaoud-maker.github.io/the-last-dance/'">
+                <img src="https://i.postimg.cc/ncVYDsF6/Screenshot-20241112-101452-Facebook.jpg" alt="Doua">
+                <div class="profile-name">Doua</div>
+            </div>
+            <div class="profile-card" onclick="window.location.href='https://karaoud-maker.github.io/the-last-dance/'">
+                <img src="https://i.postimg.cc/g0hvW8s6/Screenshot-20241112-101507-Facebook.jpg" alt="Hamdi">
+                <div class="profile-name">Hamdi</div>
+            </div>
+            <div class="profile-card" onclick="window.location.href='https://karaoud-maker.github.io/the-last-dance/'">
+                <img src="https://i.postimg.cc/m2d3Nbhh/Screenshot-20241112-101715-Facebook.jpg" alt="Sarah">
+                <div class="profile-name">Sarah</div>
+            </div>
+            <div class="profile-card" onclick="window.location.href='https://karaoud-maker.github.io/the-last-dance/'">
+                <img src="https://i.postimg.cc/7Zf3KpT9/Screenshot-20241112-101754-Facebook.jpg" alt="Lhif">
+                <div class="profile-name">Lhif</div>
+            </div>
+            <div class="profile-card" onclick="window.location.href='https://karaoud-maker.github.io/the-last-dance/'">
+                <img src="https://i.postimg.cc/t4whw23j/Screenshot-20241112-101807-Facebook.jpg" alt="Yahya">
+                <div class="profile-name">Yahya</div>
+            </div>
+            <div class="profile-card" onclick="window.location.href='https://karaoud-maker.github.io/the-last-dance/'">
+                <img src="https://i.postimg.cc/76ySYhtt/Screenshot-20241112-101815-Facebook.jpg" alt="Zeineb">
+                <div class="profile-name">Zeineb</div>
+            </div>
         </div>
     </div>
+
+    <script>
+        // Function to hide the intro after 15 seconds or on click
+        function hideIntro() {
+            document.getElementById("intro").style.display = "none";
+            document.getElementById("main-content").style.display = "block";
+            localStorage.setItem("introShown", "true");
+        }
+
+        // Check if the intro was shown before
+        if (!localStorage.getItem("introShown")) {
+            setTimeout(hideIntro, 15000); // Hide after 15 seconds
+            document.getElementById("intro").addEventListener("click", hideIntro); // Hide on click
+        } else {
+            hideIntro(); // If already shown, display main content directly
+        }
+    </script>
+
 </body>
 </html>
