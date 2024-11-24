@@ -1,4 +1,10 @@
-/* Adjusted Body Height for Mobile */
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     background-color: #141414;
     color: white;
@@ -6,27 +12,129 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: auto; /* Adjusted */
+    justify-content: flex-start; /* Prevents content overflow issues */
     min-height: 100vh; /* Ensures full height */
     padding: 20px;
     margin: 0;
 }
 
-/* Profiles Grid Responsiveness */
+/* Intro overlay styling */
+#intro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+#intro video {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+}
+
+/* Title and subtitle */
+.title {
+    font-size: 2.5rem; /* Adjusted for better mobile scaling */
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.subtitle {
+    font-size: 1.2rem; /* Adjusted for smaller screens */
+    color: #b3b3b3;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Profiles Grid */
+#main-content {
+    text-align: center;
+    width: 100%; /* Ensure full width */
+}
+
+.profiles-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Adjusted for better responsiveness */
+    gap: 15px; /* Reduced gap for tighter layouts */
+    justify-items: center; /* Center items horizontally */
+    width: 100%; /* Take full width of parent container */
+    padding: 10px; /* Added padding to prevent content from touching edges */
+}
+
+/* Profile card styling */
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.5); /* Slight background effect */
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 100%; /* Ensure it fits its container */
+}
+
+.profile-card:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+.profile-card img {
+    width: 100px; /* Adjusted size for smaller screens */
+    height: 100px;
+    border-radius: 50%;
+    background-color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease;
+}
+
+.profile-card img:hover {
+    transform: scale(1.1);
+}
+
+.profile-name {
+    margin-top: 10px;
+    font-size: 1em; /* Adjusted size for readability on smaller screens */
+    color: #e5e5e5;
+    text-align: center;
+    margin-bottom: 10px; /* Reduced spacing */
+}
+
+/* Responsive adjustments for smaller devices */
 @media (max-width: 768px) {
     .profiles-container {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Adjusted grid column size */
+        gap: 10px; /* Reduced gap for tighter layouts */
+    }
+
+    .profile-card img {
+        width: 80px; /* Smaller image size for narrower screens */
+        height: 80px;
+    }
+
+    .profile-name {
+        font-size: 0.9em; /* Adjusted font size */
     }
 }
 
 @media (max-width: 480px) {
-    .profile-card {
-        max-width: 180px;
+    .profiles-container {
+        grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); /* Further reduce grid column size */
     }
-}
 
-/* Ensure #main-content Displays */
-#main-content {
-    display: block; /* Ensure it's visible */
+    .profile-card img {
+        width: 70px; /* Further reduce image size */
+        height: 70px;
+    }
+
+    .profile-name {
+        font-size: 0.8em; /* Further reduce font size */
+    }
 }
